@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-dark: #123524;
+  --primary: #3E7B27;
+  --secondary: #85A947;
+  --accent: #EFE3C2;
+  font-family: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Orbitron', 'Rajdhani', system-ui, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: transparent;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--primary-dark);
+  color: var(--accent);
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--secondary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 600;
+}
+
+p {
+  color: var(--accent);
+  line-height: 1.6;
+  font-size: 1.1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  background: rgba(26, 26, 26, 0.9);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-item {
+  position: relative;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.nav-button {
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  background: rgba(62, 123, 39, 0.1);
+  border: 1px solid rgba(133, 169, 71, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 180px;
+  text-align: center;
+  margin: 0.5rem auto;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  background: rgba(62, 123, 39, 0.3);
+  border-color: rgba(133, 169, 71, 0.6);
+}
+
+.nav-button.active {
+  background: rgba(62, 123, 39, 0.3);
+  border-color: rgba(133, 169, 71, 0.6);
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--accent);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .content {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Responsive Container */
+.responsive-container {
+  @apply w-full mx-auto px-4 sm:px-6 lg:px-8 text-center;
+}
+
+/* Responsive Grid */
+.responsive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-center;
+}
+
+/* Responsive Flex */
+.responsive-flex {
+  @apply flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 lg:gap-8 text-center;
+}
+
+/* Responsive Text */
+.responsive-text {
+  @apply text-base sm:text-lg lg:text-xl text-center;
+}
+
+.responsive-heading {
+  @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl text-center;
+}
+
+/* Responsive Spacing */
+.responsive-padding {
+  @apply p-4 sm:p-6 lg:p-8 text-center;
+}
+
+.responsive-margin {
+  @apply m-4 sm:m-6 lg:m-8 text-center;
+}
+
+/* Responsive Images */
+.responsive-image {
+  @apply w-full h-auto object-cover mx-auto;
+}
+
+/* Center Content */
+.center-content {
+  @apply flex flex-col items-center justify-center text-center;
+  height: auto;
+  overflow: visible;
+}
+
+#home {
+  min-height: 100vh;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  position: relative;
+  padding: 2rem;
+  margin-top: 60px;
+  overflow: visible;
+}
+
+#home .content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: transparent;
+  border-radius: 20px;
+  height: auto;
+  overflow: visible;
+}
