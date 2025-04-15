@@ -3,7 +3,7 @@ import AnimatedText from '../components/AnimatedText';
 
 const Home = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#1A1A1A] p-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#1A1A1A] p-4 pt-24">
       <div className="max-w-4xl w-full text-center space-y-8">
         <AnimatedText
           text="MAILAM Engineering College"

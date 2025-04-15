@@ -1,97 +1,53 @@
-import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import './NavbarStyles.css';
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const navItems = [
+    { path: '/', label: 'HOME' },
+    { path: '/about', label: 'ABOUT' },
+    { path: '/events', label: 'EVENTS' },
+    { path: '/registration', label: 'REGISTER' },
+    { path: '/updates', label: 'UPDATES' },
+    { path: '/contact', label: 'CONTACT' },
+  ];
 
   return (
-    <nav className="fixed top-0 right-0 h-screen p-8 flex flex-col items-center justify-center">
-      <div className="logo mb-8 w-full text-center">AIDS_HACKBLITZ XXV</div>
-      <div className="flex flex-col space-y-6 items-center w-full perspective-1000">
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}>
-            <span className="button-content">Home</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#3E7B27] shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center py-3">
+          {/* Logo */}
+          <div className="flex justify-center w-full">
+            <Link
+              to="/"
+              className="logo-3d px-4 py-2 transform-gpu transition-all duration-300 mx-auto text-center"
+            >
+              <span className="logo-text">AIDS_HACKBLITZ</span>
+              <span className="logo-suffix">XXV</span>
+            </Link>
+          </div>
 
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/events" className={`nav-link ${location.pathname === '/events' ? 'active' : ''}`}>
-            <span className="button-content">Events</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/registration" className={`nav-link ${location.pathname === '/registration' ? 'active' : ''}`}>
-            <span className="button-content">Register</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
+        {/* Navigation */}
+        <div className="flex justify-center pb-2 w-full">
+          <div className="container borderYtoX">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={location.pathname === item.path ? 'active' : ''}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
 
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/updates" className={`nav-link ${location.pathname === '/updates' ? 'active' : ''}`}>
-            <span className="button-content">Updates</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}>
-            <span className="button-content">About</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
-
-        <motion.div
-          className="nav-button"
-          whileHover={{ scale: 1.05, rotateY: 5 }}
-          animate={{ rotateY: 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Link to="/contact" className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}>
-            <span className="button-content">Contact</span>
-            <span className="button-glow"></span>
-          </Link>
-        </motion.div>
       </div>
     </nav>
   );
 };
 
-export default Navbar; 
+export default Navbar;
