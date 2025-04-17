@@ -39,31 +39,57 @@
   margin-bottom: 1rem;
 }
 
-.department-text {
+/* Department text container */
+.department-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  animation: department-glow 4s ease-in-out infinite;
+  transform: perspective(500px) rotateX(-5deg);
+  padding: 0.5em;
+  border-top: 1px solid rgba(239, 227, 194, 0.3);
+  border-bottom: 1px solid rgba(239, 227, 194, 0.3);
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Department text line */
+.department-text-line {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(0.8rem, 2vw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #EFE3C2;
   text-align: center;
-  margin-bottom: 0.5rem;
   position: relative;
-  z-index: 1;
   text-shadow: 0 0 10px rgba(239, 227, 194, 0.8), 0 0 20px rgba(239, 227, 194, 0.5);
-  animation: department-glow 4s ease-in-out infinite;
-  transform: perspective(500px) rotateX(-5deg);
-  padding: 0.5em;
   background: linear-gradient(45deg, #3E7B27, #85A947, #EFE3C2, #85A947, #3E7B27);
   background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   background-clip: text;
-  border-top: 1px solid rgba(239, 227, 194, 0.3);
-  border-bottom: 1px solid rgba(239, 227, 194, 0.3);
-  padding-top: 0.3em;
-  padding-bottom: 0.3em;
+  width: 100%;
+}
+
+/* First line - DEPARTMENT OF */
+.department-text-line:first-child {
+  font-size: clamp(0.7rem, 1.6vw, 1rem);
+  opacity: 0.9;
+}
+
+/* Second line - ARTIFICIAL INTELLIGENCE AND DATA SCIENCE */
+.department-text-line:last-child {
+  font-size: clamp(1rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  margin-top: 0.2rem;
 }
 
 @keyframes department-glow {
@@ -195,10 +221,20 @@
 }
 
 @media (max-width: 768px) {
-  .department-text {
-    font-size: clamp(0.7rem, 1.8vw, 1.1rem);
-    letter-spacing: 0.15em;
+  .department-text-container {
+    gap: 0.25rem;
     padding: 0.4em;
+  }
+
+  .department-text-line:first-child {
+    font-size: clamp(0.65rem, 1.4vw, 0.9rem);
+    letter-spacing: 0.12em;
+  }
+
+  .department-text-line:last-child {
+    font-size: clamp(0.9rem, 2.2vw, 1.4rem);
+    letter-spacing: 0.1em;
+    margin-top: 0.15rem;
   }
 
   .hackathon-title {
@@ -226,11 +262,21 @@
 }
 
 @media (max-width: 480px) {
-  .department-text {
-    font-size: clamp(0.6rem, 1.6vw, 1rem);
-    letter-spacing: 0.1em;
+  .department-text-container {
+    gap: 0.2rem;
     padding: 0.3em;
     margin-bottom: 0.3rem;
+  }
+
+  .department-text-line:first-child {
+    font-size: clamp(0.6rem, 1.3vw, 0.8rem);
+    letter-spacing: 0.08em;
+  }
+
+  .department-text-line:last-child {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    letter-spacing: 0.06em;
+    margin-top: 0.1rem;
   }
 
   .hackathon-title {
@@ -259,6 +305,28 @@
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
+  .department-text-container {
+    gap: 0.15rem;
+    padding: 0.25em;
+    margin-bottom: 0.2rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .department-text-line:first-child {
+    font-size: clamp(0.55rem, 1.2vw, 0.75rem);
+    letter-spacing: 0.06em;
+    margin-right: 0.5rem;
+    opacity: 0.85;
+  }
+
+  .department-text-line:last-child {
+    font-size: clamp(0.75rem, 1.8vw, 1.1rem);
+    letter-spacing: 0.04em;
+    font-weight: 800;
+  }
+
   .hackathon-title {
     font-size: clamp(1.8rem, 5vw, 3.5rem);
     letter-spacing: 0.08em;
@@ -329,27 +397,61 @@
   transition: all 0.3s ease;
   z-index: 100;
   position: relative;
-  perspective: 1000px;
+  perspective: 90px;
   margin-right: 0.5rem;
-  flex-shrink: 0; /* Prevent logo from shrinking on small screens */
+  flex-shrink: 100; /* Prevent logo from shrinking on small screens */
 }
 
 .mec-logo-image-left {
-  width: clamp(40px, 8vw, 60px); /* Responsive width using clamp() */
+  width: clamp(30px, 6vw, 45px); /* Reduced size with responsive width using clamp() */
   height: auto;
   object-fit: contain;
   transform-style: preserve-3d;
   transition: all 0.3s ease;
   filter: drop-shadow(0 0 8px rgba(133, 169, 71, 0.6));
-  transform: translateZ(30px) rotateY(10deg); /* Rotation on Y axis for left position */
+  transform: translateZ(40px) rotateY(10deg); /* Rotation on Y axis for left position */
   animation: mec-logo-pulse-left 4s ease-in-out infinite;
   max-width: 100%; /* Ensure image doesn't overflow container */
 }
 
 @keyframes mec-logo-pulse-left {
-  0% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(30px) rotateY(10deg); }
-  50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(133, 169, 71, 0.8)); transform: translateZ(40px) rotateY(15deg); }
-  100% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(30px) rotateY(10deg); }
+  0% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(25px) rotateY(10deg); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(133, 169, 71, 0.8)); transform: translateZ(35px) rotateY(15deg); }
+  100% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(25px) rotateY(10deg); }
+}
+
+/* NAAC Logo Styles */
+.naac-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 10px rgba(133, 169, 71, 0.7)) drop-shadow(0 0 20px rgba(133, 169, 71, 0.3));
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  z-index: 100;
+  position: absolute;
+  perspective: 70px;
+  top: 0;
+  right: clamp(10px, 5%, 30px);
+  flex-shrink: 0;
+}
+
+.naac-logo-image {
+  width: clamp(35px, 7vw, 55px);
+  height: auto;
+  object-fit: contain;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(133, 169, 71, 0.6));
+  transform: translateZ(30px) rotateY(-10deg); /* Rotation on Y axis for right position */
+  animation: naac-logo-pulse 4s ease-in-out infinite;
+  max-width: 100%;
+}
+
+@keyframes naac-logo-pulse {
+  0% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(30px) rotateY(-10deg); }
+  50% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(133, 169, 71, 0.8)); transform: translateZ(40px) rotateY(-15deg); }
+  100% { filter: brightness(1) drop-shadow(0 0 5px rgba(133, 169, 71, 0.5)); transform: translateZ(30px) rotateY(-10deg); }
 }
 
 
@@ -441,6 +543,18 @@
   .register-button-container {
     margin-top: 1.2rem;
   }
+
+  .register-buttons-wrapper {
+    gap: 1.2rem;
+  }
+
+  .candy-btn {
+    font-size: clamp(0.6rem, 1.3vw, 0.7rem);
+    padding: 0.7rem 4rem;
+    min-width: 400px;
+    letter-spacing: -0.03em;
+    transform: scale(0.9);
+  }
 }
 
 @media (max-width: 480px) {
@@ -451,7 +565,16 @@
 
   .mec-logo-image-left {
     /* Size already handled by clamp() */
-    transform: translateZ(20px) rotateY(5deg); /* Reduced 3D effect for mobile */
+    transform: translateZ(15px) rotateY(5deg); /* Reduced 3D effect for mobile */
+  }
+
+  .naac-logo-container {
+    top: 5px;
+    right: clamp(5px, 3%, 15px);
+  }
+
+  .naac-logo-image {
+    transform: translateZ(20px) rotateY(-5deg); /* Reduced 3D effect for mobile */
   }
 
   .college-name-main {
@@ -471,6 +594,25 @@
   .register-button-container {
     margin-top: 1rem;
   }
+
+  .register-buttons-wrapper {
+    gap: 1rem;
+    flex-direction: column;
+  }
+
+  .candy-btn {
+    font-size: clamp(0.55rem, 1.2vw, 0.65rem);
+    padding: 0.6rem 3rem;
+    min-width: 280px;
+    width: 100%;
+    max-width: 400px;
+    letter-spacing: -0.04em;
+    transform: scale(0.85);
+  }
+
+  .btn-intra, .btn-mec {
+    margin-top: 0;
+  }
 }
 
 /* Register button container */
@@ -482,6 +624,52 @@
   margin-top: 1.5rem;
   padding: 0 1rem;
   box-sizing: border-box;
+  text-align: center;
+}
+
+.register-buttons-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Registration button styles */
+.candy-btn {
+  min-width: 600px;
+  max-width: 100%;
+  font-size: clamp(0.65rem, 1.4vw, 0.8rem);
+  padding: 0.8rem 7rem;
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+  transform: scale(0.95);
+  width: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Intra College button styles */
+.btn-intra {
+  --color1: #1A2F47;
+  --color2: #3A5F8A;
+  --color3: #0A1525;
+  --color4: #EFE3C2;
+  box-shadow: 0 5px 15px rgba(26, 47, 71, 0.4);
+}
+
+/* Inter College button styles */
+.btn-mec {
+  --color1: #3E7B27;
+  --color2: #85A947;
+  --color3: #123524;
+  --color4: #EFE3C2;
+  box-shadow: 0 5px 15px rgba(62, 123, 39, 0.4);
 }
 
 /* Orientation-specific adjustments */
@@ -506,7 +694,18 @@
 
   .mec-logo-image-left {
     /* Size already handled by clamp() */
-    transform: translateZ(22px) rotateY(7deg);
+    width: clamp(25px, 4vw, 35px); /* Even smaller in landscape mode */
+    transform: translateZ(15px) rotateY(7deg);
+  }
+
+  .naac-logo-container {
+    top: 0;
+    right: clamp(5px, 2%, 10px);
+  }
+
+  .naac-logo-image {
+    width: clamp(30px, 5vw, 45px);
+    transform: translateZ(15px) rotateY(-5deg);
   }
 
   .college-name-main {
@@ -528,6 +727,19 @@
 
   .register-button-container {
     margin-top: 0.75rem;
+  }
+
+  .register-buttons-wrapper {
+    gap: 1rem;
+    flex-direction: row;
+  }
+
+  .candy-btn {
+    transform: scale(0.8);
+    font-size: clamp(0.5rem, 1.1vw, 0.6rem);
+    padding: 0.5rem 2.5rem;
+    min-width: 300px;
+    letter-spacing: -0.05em;
   }
 
   .department-container {

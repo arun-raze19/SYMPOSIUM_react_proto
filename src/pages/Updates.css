@@ -58,6 +58,21 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* MEC tab specific styles */
+.mec-tab {
+  background-color: rgba(62, 123, 39, 0.6);
+  border: 1px solid rgba(133, 169, 71, 0.5);
+}
+
+.mec-tab:hover {
+  background-color: rgba(62, 123, 39, 0.8);
+}
+
+.mec-tab.active {
+  background-color: #3E7B27;
+  border-color: #3E7B27;
+}
+
 .tab-button:not(.active) {
   background-color: rgba(26, 71, 42, 0.5);
 }
@@ -175,39 +190,68 @@
   line-height: 1.6;
 }
 
+/* MEC empty state specific styles */
+.mec-empty-state {
+  background-color: rgba(62, 123, 39, 0.2);
+  border: 1px solid rgba(62, 123, 39, 0.4);
+}
+
+.mec-empty-state .empty-state-title {
+  color: #85A947;
+}
+
+.mec-empty-state .empty-state-emoji {
+  font-size: 4.5rem;
+  text-shadow: 0 0 15px rgba(133, 169, 71, 0.5);
+  animation: trophy-glow 2s infinite alternate ease-in-out;
+}
+
+@keyframes trophy-glow {
+  0% { transform: scale(1); text-shadow: 0 0 10px rgba(133, 169, 71, 0.5); }
+  100% { transform: scale(1.1); text-shadow: 0 0 20px rgba(133, 169, 71, 0.8); }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .updates-container {
     padding: 4rem 1rem;
   }
-  
+
   .updates-tabs {
     gap: 0.75rem;
     margin-bottom: 2rem;
   }
-  
+
   .tab-button {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
-  
+
+  .mec-tab {
+    order: 4; /* Ensure it appears last in the flex container */
+  }
+
+  .mec-empty-state .empty-state-emoji {
+    font-size: 3.8rem;
+  }
+
   .update-card {
     padding: 1.25rem;
   }
-  
+
   .empty-state {
     padding: 1.5rem;
   }
-  
+
   .empty-state-emoji {
     font-size: 3.5rem;
     margin-bottom: 1.25rem;
   }
-  
+
   .empty-state-title {
     font-size: 1.3rem;
   }
-  
+
   .empty-state-message {
     font-size: 1rem;
   }
@@ -217,50 +261,59 @@
   .updates-container {
     padding: 3rem 0.75rem;
   }
-  
+
   .updates-heading {
     margin-bottom: 1.5rem;
   }
-  
+
   .updates-tabs {
     gap: 0.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .tab-button {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
     flex: 1 1 auto;
   }
-  
+
+  .mec-tab {
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .mec-empty-state .empty-state-emoji {
+    font-size: 3rem;
+  }
+
   .update-card {
     padding: 1rem;
   }
-  
+
   .update-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
   }
-  
+
   .update-title {
     font-size: 1.1rem;
   }
-  
+
   .empty-state {
     padding: 1.25rem;
   }
-  
+
   .empty-state-emoji {
     font-size: 3rem;
     margin-bottom: 1rem;
   }
-  
+
   .empty-state-title {
     font-size: 1.2rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .empty-state-message {
     font-size: 0.95rem;
   }

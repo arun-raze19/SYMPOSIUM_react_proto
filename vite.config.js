@@ -8,7 +8,7 @@ export default defineConfig({
     allowedHosts: [
       'localhost',
       '127.0.0.1',
-      'cce9-117-243-108-239.ngrok-free.app',
+      'engaging-ant-perfectly.ngrok-free.app',
       '*.ngrok-free.app', // This will allow any ngrok-free.app subdomain
     ],
   },

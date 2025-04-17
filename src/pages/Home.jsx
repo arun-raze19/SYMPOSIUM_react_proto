@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'; // eslint-disable-line no-unused-vars
 import { Link } from 'react-router-dom';
 import './ResponsiveText.css';
 import '../components/CandyButton.css';
+import naacLogo from '../assets/NAAC.webp';
 
 const Home = () => {
   return (
@@ -24,6 +25,24 @@ const Home = () => {
                 src="/src/assets/mec.png"
                 alt="MEC Logo"
                 className="mec-logo-image-left"
+              />
+            </motion.div>
+
+            <motion.div
+              className="naac-logo-container"
+              initial={{ opacity: 0, x: 30, scale: 0.8, rotateY: -30 }}
+              animate={{ opacity: 1, x: 0, scale: 1, rotateY: 0 }}
+              transition={{ duration: 1.2, delay: 0.15, type: 'spring', stiffness: 100 }}
+              whileHover={{
+                scale: 1.1,
+                rotateY: -15,
+                filter: 'brightness(1.3) drop-shadow(0 0 15px rgba(133, 169, 71, 0.9))'
+              }}
+            >
+              <img
+                src={naacLogo}
+                alt="NAAC Logo"
+                className="naac-logo-image"
               />
             </motion.div>
 
@@ -80,12 +99,13 @@ ENGINEERING COLLEGE
 
         <div className="department-container">
           <motion.div
-            className="department-text"
+            className="department-text-container"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, type: 'spring', stiffness: 100 }}
           >
-            DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND DATA SCIENCE
+            <div className="department-text-line">DEPARTMENT OF</div>
+            <div className="department-text-line">ARTIFICIAL INTELLIGENCE AND DATA SCIENCE</div>
           </motion.div>
           <motion.div
             className="presents-text"
@@ -109,12 +129,21 @@ ENGINEERING COLLEGE
 
 
         <div className="register-button-container">
-          <Link to="/loading-redirect" style={{ textDecoration: 'none' }}>
-            <div className="candy-btn btn-candy-12">
-              <span>Register Now</span>
-              <span>Register Now</span>
-            </div>
-          </Link>
+          <div className="register-buttons-wrapper">
+            <Link to="/loading-redirect" style={{ textDecoration: 'none' }}>
+              <div className="candy-btn btn-candy-12 btn-intra">
+                <span>INTRA COLLEGE REGISTRATION</span>
+                <span>INTRA COLLEGE REGISTRATION</span>
+              </div>
+            </Link>
+
+            <Link to="/loading-redirect-mec" style={{ textDecoration: 'none' }}>
+              <div className="candy-btn btn-candy-12 btn-mec">
+                <span>INTER COLLEGE REGISTRATION</span>
+                <span>INTER COLLEGE REGISTRATION</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

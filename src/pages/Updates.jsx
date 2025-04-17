@@ -9,6 +9,7 @@ const Updates = () => {
   const allUpdates = [];
   const part1Updates = [];
   const part2Updates = [];
+  const mecUpdates = []; // New array for MEC inter college updates
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -68,6 +69,12 @@ const Updates = () => {
           >
             Part 2 - Offline (05.05.2025)
           </button>
+          <button
+            onClick={() => setActiveTab('mec')}
+            className={`tab-button mec-tab ${activeTab === 'mec' ? 'active' : ''}`}
+          >
+            MEC Inter College
+          </button>
         </motion.div>
 
         {/* Updates content */}
@@ -82,7 +89,8 @@ const Updates = () => {
             const updatesToShow =
               activeTab === 'all' ? allUpdates :
               activeTab === 'part1' ? part1Updates :
-              part2Updates;
+              activeTab === 'part2' ? part2Updates :
+              mecUpdates;
 
             if (updatesToShow.length > 0) {
               return updatesToShow.map((update) => (
@@ -126,15 +134,18 @@ const Updates = () => {
               } else if (activeTab === 'part1') {
                 message = 'Updates for Part 1 (Online Event) on 30.04.2025 will be posted here. Stay tuned for information about online presentations and judging criteria.';
                 emoji = '💻'; // computer
-              } else {
+              } else if (activeTab === 'part2') {
                 message = 'Updates for Part 2 (Offline Event) on 05.05.2025 will be posted here. Check back for details about venue, schedule, and prototype demonstrations.';
                 emoji = '🌐'; // globe
+              } else {
+                message = 'Updates for MEC Inter College event will be posted here. Stay tuned for information about registration, DSA problems, and competition details.';
+                emoji = '🏆'; // trophy
               }
 
               return (
                 <motion.div
                   variants={itemVariants}
-                  className="empty-state"
+                  className={`empty-state ${activeTab === 'mec' ? 'mec-empty-state' : ''}`}
                 >
                   <div className="empty-state-emoji">{emoji}</div>
                   <h3 className="empty-state-title">

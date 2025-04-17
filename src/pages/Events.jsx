@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import './Events.css';
 import eventPoster from '../assets/INTER.png';
+import interEventPoster from '../assets/mecevv.png';
 
 const Events = () => {
+  const [activeTab, setActiveTab] = useState('intra'); // 'intra' or 'inter'
+
+  // Intra College Event Data
   const domains = [
     {
       id: 1,
@@ -46,6 +51,12 @@ const Events = () => {
     }
   ];
 
+  // Inter College Event Data
+  const interCollegeGuidelines = [
+    'This Linear hackathon provides each team with two problems based on Data Structure and Algorithms (DSA).',
+    'Participants must complete the problem within the time limit.'
+  ];
+
   return (
     <div className="min-h-screen bg-[#1A1A1A] pt-20 pb-16 bg-opacity-100" style={{ overflowY: 'auto', WebkitOverflowScrolling: 'touch', contain: 'content', willChange: 'scroll-position' }}>
       <motion.div
@@ -54,6 +65,21 @@ const Events = () => {
         transition={{ duration: 0.8 }}
         className="events-container"
       >
+        {/* Event Tabs */}
+        <div className="event-tabs">
+          <button
+            className={`event-tab ${activeTab === 'intra' ? 'active' : ''}`}
+            onClick={() => setActiveTab('intra')}
+          >
+            Intra College Event
+          </button>
+          <button
+            className={`event-tab ${activeTab === 'inter' ? 'active' : ''}`}
+            onClick={() => setActiveTab('inter')}
+          >
+            Inter College Event
+          </button>
+        </div>
         <motion.h1
           className="events-title"
           initial={{ opacity: 0, y: -20 }}
@@ -63,136 +89,239 @@ const Events = () => {
           AI_HACKBLITZ XXV
         </motion.h1>
 
-        {/* Event Poster */}
-        <motion.div
-          className="event-poster-container"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          <img src={eventPoster} alt="AI_HACKBLITZ XXV Event Poster" className="event-poster" />
-        </motion.div>
-
-        {/* Domains Section */}
-        <motion.div
-          className="domains-section"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <h2 className="domains-title">Hackathon Themes</h2>
-          <div className="domains-list">
-            {domains.map((domain, index) => (
-              <motion.div
-                key={domain.id}
-                className="domain-card"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
-                whileHover={{ scale: 1.03 }}
-              >
-                <div className="domain-number">{domain.id}.</div>
-                <div className="domain-name">{domain.name}</div>
-                <div className="domain-technologies">{domain.technologies}</div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Event Criteria Section */}
-        <motion.div
-          className="criteria-section"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <h2 className="domains-title">Event Criteria</h2>
-          <div className="criteria-grid">
+        {/* Intra College Event Content */}
+        {activeTab === 'intra' && (
+          <motion.div
+            className="event-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Event Poster */}
             <motion.div
-              className="criteria-card"
+              className="event-poster-container"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img src={eventPoster} alt="AI_HACKBLITZ XXV Event Poster" className="event-poster" />
+            </motion.div>
+
+            {/* Domains Section */}
+            <motion.div
+              className="domains-section"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <h2 className="domains-title">Hackathon Themes</h2>
+              <div className="domains-list">
+                {domains.map((domain, index) => (
+                  <motion.div
+                    key={domain.id}
+                    className="domain-card"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 + (index * 0.1) }}
+                    whileHover={{ scale: 1.03 }}
+                  >
+                    <div className="domain-number">{domain.id}.</div>
+                    <div className="domain-name">{domain.name}</div>
+                    <div className="domain-technologies">{domain.technologies}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Event Criteria Section */}
+            <motion.div
+              className="criteria-section"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <h2 className="domains-title">Event Criteria</h2>
+              <div className="criteria-grid">
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">📍</div>
+                  <h3 className="criteria-title">VENUE</h3>
+                  <p className="criteria-value">DATA SCIENCE LAB, TECH BLOCK</p>
+                </motion.div>
+
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.8 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">⏱️</div>
+                  <h3 className="criteria-title">DURATION</h3>
+                  <p className="criteria-value">6 HOURS</p>
+                </motion.div>
+
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.9 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">👥</div>
+                  <h3 className="criteria-title">TEAM SIZE</h3>
+                  <p className="criteria-value">UP TO 3 MEMBERS</p>
+                </motion.div>
+
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 1.0 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">💰</div>
+                  <h3 className="criteria-title">REGISTRATION FEE</h3>
+                  <p className="criteria-value">₹300 PER TEAM</p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Event Parts Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.1 }}
+            >
+              <h2 className="domains-title">Event Format</h2>
+              <div className="event-parts">
+                {eventParts.map((part, index) => (
+                  <motion.div
+                    key={part.id}
+                    className="event-part"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <h3 className="event-part-title">
+                      <span>PART {part.id}</span> - {part.title}
+                    </h3>
+                    <div className="event-date">
+                      {part.id === 1 ? '30-04-2025' : '05-05-2025'}
+                    </div>
+                    <p className="event-description">{part.description}</p>
+                    <div className="event-rules">
+                      <h4 className="event-rules-title">Rules and Regulations:</h4>
+                      <p className="event-rules-content">{part.rules}</p>
+                      {part.id === 1 && (
+                        <p className="event-rules-content mt-2">* The part one upload link or time will be updated on updates page</p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+
+        {/* Inter College Event Content */}
+        {activeTab === 'inter' && (
+          <motion.div
+            className="event-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {/* Event Poster */}
+            <motion.div
+              className="event-poster-container inter-event-poster-container"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              <img src={interEventPoster} alt="MEC Event Poster" className="event-poster inter-event-poster" />
+            </motion.div>
+
+            {/* Event Criteria Section */}
+            <motion.div
+              className="criteria-section"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <h2 className="domains-title">Event Criteria</h2>
+              <div className="criteria-grid">
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">📍</div>
+                  <h3 className="criteria-title">VENUE</h3>
+                  <p className="criteria-value">DATA SCIENCE LAB, TECH BLOCK</p>
+                </motion.div>
+
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">👥</div>
+                  <h3 className="criteria-title">TEAM SIZE</h3>
+                  <p className="criteria-value">UP TO 3 MEMBERS</p>
+                </motion.div>
+
+                <motion.div
+                  className="criteria-card"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  whileHover={{ scale: 1.03 }}
+                >
+                  <div className="criteria-icon">💰</div>
+                  <h3 className="criteria-title">REGISTRATION FEE</h3>
+                  <p className="criteria-value">₹150 PER TEAM</p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* Guidelines Section */}
+            <motion.div
+              className="guidelines-section"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              whileHover={{ scale: 1.03 }}
             >
-              <div className="criteria-icon">📍</div>
-              <h3 className="criteria-title">VENUE</h3>
-              <p className="criteria-value">DATA SCIENCE LAB, TECH BLOCK</p>
+              <h2 className="domains-title">HACKATHON GUIDELINES</h2>
+              <div className="guidelines-container">
+                <ul className="guidelines-list">
+                  {interCollegeGuidelines.map((guideline, index) => (
+                    <motion.li
+                      key={index}
+                      className="guideline-item"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
+                    >
+                      <span className="guideline-bullet">♦</span>
+                      <span className="guideline-text">{guideline}</span>
+                    </motion.li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
-
-            <motion.div
-              className="criteria-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              whileHover={{ scale: 1.03 }}
-            >
-              <div className="criteria-icon">⏱️</div>
-              <h3 className="criteria-title">DURATION</h3>
-              <p className="criteria-value">6 HOURS</p>
-            </motion.div>
-
-            <motion.div
-              className="criteria-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.9 }}
-              whileHover={{ scale: 1.03 }}
-            >
-              <div className="criteria-icon">👥</div>
-              <h3 className="criteria-title">TEAM SIZE</h3>
-              <p className="criteria-value">UP TO 3 MEMBERS</p>
-            </motion.div>
-
-            <motion.div
-              className="criteria-card"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.0 }}
-              whileHover={{ scale: 1.03 }}
-            >
-              <div className="criteria-icon">💰</div>
-              <h3 className="criteria-title">REGISTRATION FEE</h3>
-              <p className="criteria-value">₹300 PER TEAM</p>
-            </motion.div>
-          </div>
-        </motion.div>
-
-        {/* Event Parts Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.1 }}
-        >
-          <h2 className="domains-title">Event Format</h2>
-          <div className="event-parts">
-            {eventParts.map((part, index) => (
-              <motion.div
-                key={part.id}
-                className="event-part"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 + (index * 0.1) }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <h3 className="event-part-title">
-                  <span>PART {part.id}</span> - {part.title}
-                </h3>
-                <div className="event-date">
-                  {part.id === 1 ? '30-04-2025' : '05-05-2025'}
-                </div>
-                <p className="event-description">{part.description}</p>
-                <div className="event-rules">
-                  <h4 className="event-rules-title">Rules and Regulations:</h4>
-                  <p className="event-rules-content">{part.rules}</p>
-                  {part.id === 1 && (
-                    <p className="event-rules-content mt-2">* The part one upload link or time will be updated on updates page</p>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
       </motion.div>
     </div>
   );

@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import './LoadingRedirect.css';
 
-const LoadingRedirect = () => {
+const LoadingRedirectMEC = () => {
   const [countdown, setCountdown] = useState(3);
-  const redirectUrl = 'https://forms.gle/epqgbiNrjpThsHzb7';
+  const redirectUrl = 'https://forms.gle/fRUn4QBAComJcNQKA';
 
   useEffect(() => {
     // Start countdown
@@ -75,7 +75,7 @@ const LoadingRedirect = () => {
           variants={textVariants}
           custom={0}
         >
-          <span>Redirecting to Intra College form</span>
+          <span>Redirecting to Inter College form</span>
         </motion.div>
 
         <motion.div
@@ -119,4 +119,4 @@ const LoadingRedirect = () => {
   );
 };
 
-export default LoadingRedirect;
+export default LoadingRedirectMEC;
