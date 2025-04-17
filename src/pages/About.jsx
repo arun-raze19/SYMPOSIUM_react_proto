@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import hodImage from '../assets/hod.jpg';
 
 const About = () => {
   const team = [
@@ -63,7 +64,7 @@ const About = () => {
               </div>
               <div className="welcome-image-container">
                 <img
-                  src="/src/assets/hod.jpg"
+                  src={hodImage}
                   alt="Dr. S. ARTHEESWARI - Head of Department"
                   className="welcome-image"
                 />

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import './ResponsiveText.css';
 import '../components/CandyButton.css';
 import naacLogo from '../assets/NAAC.webp';
+import mecLogo from '../assets/mec.png';
 
 const Home = () => {
   return (
@@ -22,7 +23,7 @@ const Home = () => {
               }}
             >
               <img
-                src="/src/assets/mec.png"
+                src={mecLogo}
                 alt="MEC Logo"
                 className="mec-logo-image-left"
               />
