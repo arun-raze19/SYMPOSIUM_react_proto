@@ -77,6 +77,27 @@ div.borderYtoX a.active {
   font-weight: 700;
 }
 
+/* Logo Container */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  width: auto;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo hover effect */
+.logo-container:hover {
+  background: rgba(255, 255, 255, 0.05);
+  animation: float 3s ease-in-out infinite;
+}
+
 /* 3D Logo Styles */
 .logo-3d {
   display: flex;
@@ -163,6 +184,17 @@ div.borderYtoX a.active {
   100% { transform: scale(1) translateZ(15px); filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.6)); }
 }
 
+/* Animation for the logo container */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(0.5deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(3px) rotate(-0.5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* Animation applied in the hover state above */
+
 @keyframes glow {
   0% { text-shadow: 0 0 10px rgba(133, 169, 71, 0.9), 0 0 20px rgba(133, 169, 71, 0.7), 0 0 30px rgba(133, 169, 71, 0.5), 3px 3px 0 rgba(0, 0, 0, 0.6), 5px 5px 0 rgba(0, 0, 0, 0.4); }
   50% { text-shadow: 0 0 15px rgba(133, 169, 71, 1), 0 0 30px rgba(133, 169, 71, 0.9), 0 0 45px rgba(133, 169, 71, 0.7), 4px 4px 0 rgba(0, 0, 0, 0.7), 6px 6px 0 rgba(0, 0, 0, 0.5); }
@@ -181,6 +213,70 @@ div.borderYtoX a.active {
 
 .logo-suffix {
   animation: suffixPulse 3s infinite ease-in-out alternate;
+}
+
+/* 3D Separator Lines */
+.nav-container {
+  position: relative;
+}
+
+/* Main shadow gradient */
+.nav-container::before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: linear-gradient(to bottom, rgba(62, 123, 39, 0.8), rgba(18, 53, 36, 0));
+  z-index: -1;
+  transform-origin: top;
+  transform: skewY(-0.5deg);
+  box-shadow:
+    0 6px 10px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Top glowing line */
+.nav-container::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right,
+    rgba(133, 169, 71, 0),
+    rgba(133, 169, 71, 0.8) 20%,
+    rgba(239, 227, 194, 1) 50%,
+    rgba(133, 169, 71, 0.8) 80%,
+    rgba(133, 169, 71, 0));
+  z-index: 1;
+  box-shadow:
+    0 0 10px rgba(239, 227, 194, 0.8),
+    0 0 20px rgba(239, 227, 194, 0.5);
+}
+
+/* Additional decorative line - using a separate element */
+.nav-container .nav-bottom-line {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right,
+    rgba(18, 53, 36, 0),
+    rgba(18, 53, 36, 0.7) 10%,
+    rgba(62, 123, 39, 1) 50%,
+    rgba(18, 53, 36, 0.7) 90%,
+    rgba(18, 53, 36, 0));
+  z-index: 0;
+  transform-origin: bottom;
+  transform: skewY(0.5deg);
+  box-shadow:
+    0 -2px 6px rgba(62, 123, 39, 0.5),
+    0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive adjustments */
@@ -220,6 +316,10 @@ div.borderYtoX a.active {
     font-size: 0.85rem;
   }
 
+  .logo-container {
+    padding: 0.4rem;
+  }
+
   .logo-text {
     font-size: 2.2rem;
   }
@@ -241,6 +341,10 @@ div.borderYtoX a.active {
     letter-spacing: 0.5px;
   }
 
+  .logo-container {
+    padding: 0.3rem;
+  }
+
   .logo-text {
     font-size: 1.9rem;
   }
@@ -256,6 +360,10 @@ div.borderYtoX a.active {
     padding: 0.2rem 0.25rem;
     font-size: 0.75rem;
     letter-spacing: 0px;
+  }
+
+  .logo-container {
+    padding: 0.2rem;
   }
 
   .logo-text {

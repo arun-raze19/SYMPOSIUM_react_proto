@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.candy-btn {
+  width: 180px;
+  height: 50px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Button Style 12 - 3D Flip Effect */
+.btn-candy-12 {
+  position: relative;
+  border: none;
+  box-shadow: none;
+  width: 180px;
+  height: 50px;
+  line-height: 52px;
+  perspective: 230px;
+}
+
+.btn-candy-12 span {
+  background: rgb(62, 123, 39);
+  background: linear-gradient(0deg, rgba(62, 123, 39, 1) 0%, rgba(133, 169, 71, 1) 100%);
+  display: block;
+  position: absolute;
+  width: 180px;
+  height: 50px;
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  border-radius: 5px;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-candy-12 span:nth-child(1) {
+  box-shadow:
+    -7px -7px 20px 0px rgba(255,255,255,0.6),
+    -4px -4px 5px 0px rgba(255,255,255,0.6),
+    7px 7px 20px 0px rgba(0,0,0,0.1),
+    4px 4px 5px 0px rgba(0,0,0,0.1);
+  transform: rotateX(90deg);
+  transform-origin: 50% 50% -25px;
+}
+
+.btn-candy-12 span:nth-child(2) {
+  transform: rotateX(0deg);
+  transform-origin: 50% 50% -25px;
+}
+
+.btn-candy-12:hover span:nth-child(1) {
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  transform: rotateX(0deg);
+}
+
+.btn-candy-12:hover span:nth-child(2) {
+  box-shadow: inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+  color: transparent;
+  transform: rotateX(-90deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .candy-btn, .btn-candy-12, .btn-candy-12 span {
+    width: 160px;
+    height: 45px;
+    line-height: 47px;
+    font-size: 1.1rem;
+  }
+  
+  .btn-candy-12 span:nth-child(1) {
+    transform-origin: 50% 50% -22.5px;
+  }
+  
+  .btn-candy-12 span:nth-child(2) {
+    transform-origin: 50% 50% -22.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .candy-btn, .btn-candy-12, .btn-candy-12 span {
+    width: 140px;
+    height: 40px;
+    line-height: 42px;
+    font-size: 1rem;
+  }
+  
+  .btn-candy-12 span:nth-child(1) {
+    transform-origin: 50% 50% -20px;
+  }
+  
+  .btn-candy-12 span:nth-child(2) {
+    transform-origin: 50% 50% -20px;
+  }
+}

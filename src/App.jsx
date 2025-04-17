@@ -3,22 +3,32 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Events from './pages/Events';
-import Registration from './pages/Registration';
 import Updates from './pages/Updates';
 import Navbar from './components/Navbar';
+import FuturisticBackground from './components/FuturisticBackground';
+import LoadingRedirect from './components/LoadingRedirect';
 
 function App() {
+
   return (
     <Router>
-      <div className="min-h-screen bg-[#1A1A1A]">
+      <FuturisticBackground />
+      <div className="min-h-screen relative z-10" style={{
+        overflowY: 'auto',
+        WebkitOverflowScrolling: 'touch',
+        scrollbarWidth: 'thin',
+        backgroundColor: 'rgba(18, 53, 36, 0.85)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)'
+      }}>
         <Navbar />
-        <main className="pt-32 sm:pt-32 md:pt-32 lg:pt-32">
+        <main className="pt-0 relative z-10 bg-transparent">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/events" element={<Events />} />
-            <Route path="/registration" element={<Registration />} />
+            <Route path="/loading-redirect" element={<LoadingRedirect />} />
             <Route path="/updates" element={<Updates />} />
           </Routes>
         </main>

@@ -1,71 +1,51 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
 
   const socialLinks = [
     {
-      platform: 'Twitter',
-      icon: '🐦',
-      url: '#',
-    },
-    {
-      platform: 'LinkedIn',
-      icon: '💼',
-      url: '#',
-    },
-    {
-      platform: 'Instagram',
+      platform: 'AI Explorer Instagram',
       icon: '📸',
-      url: '#',
-    },
-    {
-      platform: 'GitHub',
-      icon: '👨‍💻',
-      url: '#',
+      url: 'https://www.instagram.com/ai_explorer_mec/?igsh=bnM4Y2RicXZsdDlp',
     },
   ];
 
   const contactInfo = [
     {
-      title: 'Email',
-      value: 'contact@aidshackblitz.com',
-      icon: '✉️',
+      title: 'Faculty Coordinators',
+      values: [
+        { name: 'Mrs. VASANTHI G', role: 'ASP/AI&DS', phone: '7904456534' },
+        { name: 'Mrs. JAYABHARATHI S', role: 'AP/AI&DS', phone: '7558186413' },
+      ],
+      icon: '👨‍🏫',
     },
     {
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      icon: '📱',
+      title: 'Student Coordinators',
+      values: [
+        { name: 'Mr. Arun Kumar V', phone: '9500600673' },
+        { name: 'Ms. Harini B', phone: '6381691953' },
+        { name: 'Ms. Jayalakshmy M', phone: '8072714897' },
+        { name: 'Mr. Ilangovan S', phone: '9790008749' },
+        { name: 'Ms. Savitha L', phone: '8148051597' },
+      ],
+      icon: '🧑‍🎓',
+    },
+    {
+      title: 'Email',
+      value: 'aidshackblitzxxv@gmail.com',
+      icon: '✉️',
+      isEmail: true,
     },
     {
       title: 'Location',
-      value: '123 Tech Street, Innovation City',
+      value: 'Mailam Engineering College, Mailam',
       icon: '📍',
+      mapLink: 'https://www.google.com/maps/dir//Taluk,+Tindivanam,+Mailam,+Tamil+Nadu+604304/@12.1177904,79.5338338,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a53444fe6d6f745:0x6f0bf0acc24680ae!2m2!1d79.6162357!2d12.1178026?entry=ttu&g_ep=EgoyMDI1MDQxNC4xIKXMDSoJLDEwMjExNDU1SAFQAw%3D%3D',
     },
   ];
 
   return (
-    <div className="responsive-section bg-[#123524]">
+    <div className="responsive-section bg-[#123524]" style={{ overflowY: 'auto', WebkitOverflowScrolling: 'touch', contain: 'content', willChange: 'scroll-position' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -75,122 +55,75 @@ const Contact = () => {
           Contact Us
         </h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="responsive-card p-4 sm:p-6 lg:p-8"
-          >
-            <h2 className="responsive-text font-bold text-[#EFE3C2] mb-4 sm:mb-6">
-              Send us a Message
-            </h2>
-            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
-              <div>
-                <label className="responsive-text block text-[#EFE3C2] mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="responsive-input w-full"
-                  placeholder="Your name"
-                  required
-                />
-              </div>
-              <div>
-                <label className="responsive-text block text-[#EFE3C2] mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="responsive-input w-full"
-                  placeholder="Your email"
-                  required
-                />
-              </div>
-              <div>
-                <label className="responsive-text block text-[#EFE3C2] mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="responsive-input w-full"
-                  placeholder="Subject"
-                  required
-                />
-              </div>
-              <div>
-                <label className="responsive-text block text-[#EFE3C2] mb-2">
-                  Message
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="4"
-                  className="responsive-input w-full h-24 sm:h-32"
-                  placeholder="Your message"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="responsive-button w-full sm:w-auto"
-              >
-                Send Message
-              </button>
-            </form>
-          </motion.div>
-
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             className="responsive-card p-4 sm:p-6 lg:p-8"
           >
             <h2 className="responsive-text font-bold text-[#EFE3C2] mb-4 sm:mb-6">
               Get in Touch
             </h2>
-            <div className="space-y-4 sm:space-y-6">
+            <div className="space-y-8 sm:space-y-10">
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="text-xl sm:text-2xl">{info.icon}</div>
-                  <div>
+                <div key={index} className="contact-section">
+                  <div className="flex items-center space-x-3 sm:space-x-4 mb-4">
+                    <div className="text-2xl sm:text-3xl">{info.icon}</div>
                     <h3 className="responsive-text font-bold text-[#EFE3C2]">
                       {info.title}
                     </h3>
-                    <p className="text-[#85A947] text-sm sm:text-base">{info.value}</p>
                   </div>
+
+                  {info.values ? (
+                    <div className="contact-list">
+                      {info.values.map((contact, contactIndex) => (
+                        <div key={contactIndex} className="contact-item">
+                          <div className="contact-name">
+                            <span>{contact.name}</span>
+                            {contact.role && <span className="contact-role">{contact.role}</span>}
+                          </div>
+                          <a href={`tel:${contact.phone}`} className="contact-phone">{contact.phone}</a>
+                        </div>
+                      ))}
+                    </div>
+                  ) : info.isEmail ? (
+                    <a href={`mailto:${info.value}`} className="contact-link email-link">
+                      <span>{info.value}</span>
+                      <span className="contact-link-icon">✉️</span>
+                    </a>
+                  ) : info.mapLink ? (
+                    <div>
+                      <p className="text-[#85A947] text-sm sm:text-base pl-10 mb-3">{info.value}</p>
+                      <a href={info.mapLink} target="_blank" rel="noopener noreferrer" className="contact-link map-link">
+                        <span>View on Google Maps</span>
+                        <span className="contact-link-icon">🗺️</span>
+                      </a>
+                    </div>
+                  ) : (
+                    <p className="text-[#85A947] text-sm sm:text-base pl-10">{info.value}</p>
+                  )}
                 </div>
               ))}
             </div>
 
-            {/* Social Media Links */}
-            <div className="mt-6 sm:mt-8">
-              <h3 className="responsive-text font-bold text-[#EFE3C2] mb-3 sm:mb-4">
-                Follow Us
+            {/* Social Media Link */}
+            <div className="mt-8 sm:mt-10 pt-6 border-t border-[#85A947]/30">
+              <h3 className="responsive-text font-bold text-[#EFE3C2] mb-4 sm:mb-5 text-center">
+                Follow Us on Instagram
               </h3>
-              <div className="flex flex-wrap gap-2 sm:gap-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={index}
-                    href={social.url}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="responsive-button text-sm sm:text-base"
-                  >
-                    {social.platform}
-                  </motion.a>
-                ))}
+              <div className="flex justify-center">
+                <motion.a
+                  href={socialLinks[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, y: -3 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="instagram-link-button"
+                >
+                  <span className="text-3xl mr-3">{socialLinks[0].icon}</span>
+                  <span className="instagram-text">@ai_explorer_mec</span>
+                </motion.a>
               </div>
             </div>
           </motion.div>
@@ -200,4 +133,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

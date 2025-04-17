@@ -1,0 +1,191 @@
+.loading-redirect-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1A1A1A;
+  padding-top: 80px; /* Account for navbar */
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 90%;
+  text-align: center;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+.redirect-message {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: #EFE3C2;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(133, 169, 71, 0.7), 0 0 20px rgba(133, 169, 71, 0.4);
+}
+
+.hang-tight {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  color: #85A947;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(133, 169, 71, 0.8), 0 0 30px rgba(133, 169, 71, 0.5);
+}
+
+.hackathon-title-3d {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  margin: 2rem 0;
+}
+
+.title-text {
+  font-size: clamp(1.8rem, 6vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #3E7B27;
+  display: inline-block;
+  transform-style: preserve-3d;
+  animation: float-title 6s ease-in-out infinite;
+  text-shadow: 
+    0 0 20px rgba(62, 123, 39, 0.8),
+    0 0 40px rgba(62, 123, 39, 0.4),
+    0 0 60px rgba(62, 123, 39, 0.2);
+  position: relative;
+}
+
+.title-text::before {
+  content: 'AI_HACKBLITZ-XXV';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(133, 169, 71, 0.4);
+  transform: translateZ(-10px);
+  filter: blur(5px);
+}
+
+.title-text::after {
+  content: 'AI_HACKBLITZ-XXV';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: rgba(239, 227, 194, 0.2);
+  transform: translateZ(-20px);
+  filter: blur(10px);
+}
+
+@keyframes float-title {
+  0%, 100% {
+    transform: translateZ(40px) rotateX(10deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateZ(60px) rotateX(-5deg) rotateY(-3deg);
+  }
+}
+
+.loading-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 1rem auto;
+}
+
+.spinner-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent;
+  border-top-color: #85A947;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+.spinner-inner {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 4px solid transparent;
+  border-top-color: #3E7B27;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite reverse;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.countdown {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #EFE3C2;
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+/* Add some 3D grid lines in the background */
+.loading-redirect-container::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background: 
+    linear-gradient(rgba(62, 123, 39, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(62, 123, 39, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(500px) rotateX(60deg);
+  animation: grid-move 20s linear infinite;
+  z-index: 1;
+}
+
+@keyframes grid-move {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(40px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .loading-content {
+    gap: 1.5rem;
+  }
+  
+  .hackathon-title-3d {
+    margin: 1.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-content {
+    gap: 1rem;
+  }
+  
+  .hackathon-title-3d {
+    margin: 1rem 0;
+  }
+  
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+  }
+}

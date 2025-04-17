@@ -1,36 +1,14 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+import './Updates.css';
 
 const Updates = () => {
-  const updates = [
-    {
-      id: 1,
-      date: "2024-03-20",
-      title: "Registration Open",
-      description: "Registration for AIDS_HACKBLITZ XXV is now open! Early bird registrations get special benefits.",
-      category: "Registration"
-    },
-    {
-      id: 2,
-      date: "2024-03-18",
-      title: "New Event Categories",
-      description: "Exciting new categories added for this year's hackathon. Check out the events page for more details!",
-      category: "Events"
-    },
-    {
-      id: 3,
-      date: "2024-03-15",
-      title: "Workshop Schedule",
-      description: "Pre-hackathon workshops schedule has been released. Don't miss out on these learning opportunities!",
-      category: "Workshops"
-    },
-    {
-      id: 4,
-      date: "2024-03-10",
-      title: "Sponsors Announcement",
-      description: "We're excited to announce our sponsors for this year's hackathon. Major tech companies are joining us!",
-      category: "Announcements"
-    }
-  ];
+  const [activeTab, setActiveTab] = useState('all');
+
+  // Empty arrays for each update category
+  const allUpdates = [];
+  const part1Updates = [];
+  const part2Updates = [];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -54,57 +32,125 @@ const Updates = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#123524] py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <motion.h1 
+    <div className="updates-container">
+      <div className="updates-content">
+        <motion.h1
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center"
+          className="updates-heading"
         >
           Latest Updates
         </motion.h1>
 
+        {/* Tab navigation */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="updates-tabs"
+        >
+          <button
+            onClick={() => setActiveTab('all')}
+            className={`tab-button ${activeTab === 'all' ? 'active' : ''}`}
+          >
+            All Updates
+          </button>
+          <button
+            onClick={() => setActiveTab('part1')}
+            className={`tab-button ${activeTab === 'part1' ? 'active' : ''}`}
+          >
+            Part 1 - Online (30.04.2025)
+          </button>
+          <button
+            onClick={() => setActiveTab('part2')}
+            className={`tab-button ${activeTab === 'part2' ? 'active' : ''}`}
+          >
+            Part 2 - Offline (05.05.2025)
+          </button>
+        </motion.div>
+
+        {/* Updates content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="updates-list"
         >
-          {updates.map((update) => (
-            <motion.div
-              key={update.id}
-              variants={itemVariants}
-              className="bg-[#1a472a]/30 backdrop-blur-sm rounded-lg p-6 border border-[#85A947]/30 hover:border-[#85A947] transition-all duration-300"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <span className="text-sm text-[#EFE3C2]/70">{update.date}</span>
-                <span className="px-3 py-1 bg-[#85A947]/20 rounded-full text-xs text-[#EFE3C2]">
-                  {update.category}
-                </span>
-              </div>
-              
-              <h3 className="text-xl font-semibold mb-3 text-[#EFE3C2]">
-                {update.title}
-              </h3>
-              
-              <p className="text-[#EFE3C2]/80">
-                {update.description}
-              </p>
+          {(() => {
+            // Determine which updates to show based on active tab
+            const updatesToShow =
+              activeTab === 'all' ? allUpdates :
+              activeTab === 'part1' ? part1Updates :
+              part2Updates;
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-4 px-4 py-2 bg-[#85A947]/20 hover:bg-[#85A947]/30 rounded-md text-sm text-[#EFE3C2] transition-all duration-300"
-              >
-                Read More
-              </motion.button>
-            </motion.div>
-          ))}
+            if (updatesToShow.length > 0) {
+              return updatesToShow.map((update) => (
+                <motion.div
+                  key={update.id}
+                  variants={itemVariants}
+                  className="update-card"
+                >
+                  <div className="update-header">
+                    <span className="update-date">{update.date}</span>
+                    <span className="update-category">
+                      {update.category}
+                    </span>
+                  </div>
+
+                  <h3 className="update-title">
+                    {update.title}
+                  </h3>
+
+                  <p className="update-description">
+                    {update.description}
+                  </p>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="update-button"
+                  >
+                    Read More
+                  </motion.button>
+                </motion.div>
+              ));
+            } else {
+              // Create a custom message based on the active tab
+              let message = '';
+              let emoji = '';
+
+              if (activeTab === 'all') {
+                message = 'Updates about AI_HACKBLITZ XXV will be posted here soon. Check back regularly for announcements about registration, events, and more!';
+                emoji = '📢'; // megaphone
+              } else if (activeTab === 'part1') {
+                message = 'Updates for Part 1 (Online Event) on 30.04.2025 will be posted here. Stay tuned for information about online presentations and judging criteria.';
+                emoji = '💻'; // computer
+              } else {
+                message = 'Updates for Part 2 (Offline Event) on 05.05.2025 will be posted here. Check back for details about venue, schedule, and prototype demonstrations.';
+                emoji = '🌐'; // globe
+              }
+
+              return (
+                <motion.div
+                  variants={itemVariants}
+                  className="empty-state"
+                >
+                  <div className="empty-state-emoji">{emoji}</div>
+                  <h3 className="empty-state-title">
+                    Stay Tuned for Updates
+                  </h3>
+                  <p className="empty-state-message">
+                    {message}
+                  </p>
+                </motion.div>
+              );
+            }
+          })()}
         </motion.div>
       </div>
     </div>
   );
 };
 
-export default Updates; 
+export default Updates;

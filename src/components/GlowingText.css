@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --glow-color-1: #3E7B27;
+  --glow-color-2: #85A947;
+  --glow-color-3: #EFE3C2;
+  --bg-color: #1A1A1A;
+  --text-color: #EFE3C2;
+  --base-depth: 5px;
+  --max-depth: 45px;
+  --wobble-angle: 10deg;
+  --letter-spacing: 2px;
+}
+
+.glowing-3d-text {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: calc(1000px + (var(--window-width) * 0.1));
+  text-align: center;
+  animation: wobble 5s ease-in-out infinite;
+  transform-origin: center center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+
+.glowing-3d-text-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.glowing-3d-text h1 {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  line-height: 1.2;
+  font-family: 'Orbitron', 'Concert One', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  position: absolute;
+  color: var(--bg-color);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  animation: glow 10s ease-in-out infinite;
+  letter-spacing: var(--letter-spacing);
+  justify-content: center;
+  align-items: center;
+  transform: translateZ(calc(var(--layer-index) * var(--base-depth)));
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+@keyframes wobble {
+  0%, 100% { transform: rotate3d(1, 1, 0, var(--wobble-angle)); }
+  25% { transform: rotate3d(-1, 1, 0, var(--wobble-angle)); }
+  50% { transform: rotate3d(-1, -1, 0, var(--wobble-angle)); }
+  75% { transform: rotate3d(1, -1, 0, var(--wobble-angle)); }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 30px var(--glow-color-1), 0 0 50px var(--glow-color-1), 0 0 70px var(--glow-color-1); }
+  25% { text-shadow: 0 0 30px var(--glow-color-2), 0 0 50px var(--glow-color-2), 0 0 70px var(--glow-color-2); }
+  50% { text-shadow: 0 0 30px var(--glow-color-3), 0 0 50px var(--glow-color-3), 0 0 70px var(--glow-color-3); }
+  75% { text-shadow: 0 0 30px var(--glow-color-1), 0 0 50px var(--glow-color-1), 0 0 70px var(--glow-color-1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  :root {
+    --base-depth: 4.5px;
+    --max-depth: 40px;
+    --wobble-angle: 9deg;
+    --letter-spacing: 1.8px;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.9em;
+  }
+
+  .glowing-3d-text-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    --base-depth: 4px;
+    --max-depth: 35px;
+    --wobble-angle: 8deg;
+    --letter-spacing: 1.5px;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.8em;
+  }
+
+  .glowing-3d-text-container {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --base-depth: 3.5px;
+    --max-depth: 30px;
+    --wobble-angle: 7deg;
+    --letter-spacing: 1.2px;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.7em;
+  }
+
+  .glowing-3d-text-container {
+    max-width: 94%;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px var(--glow-color-1), 0 0 40px var(--glow-color-1), 0 0 60px var(--glow-color-1); }
+    25% { text-shadow: 0 0 20px var(--glow-color-2), 0 0 40px var(--glow-color-2), 0 0 60px var(--glow-color-2); }
+    50% { text-shadow: 0 0 20px var(--glow-color-3), 0 0 40px var(--glow-color-3), 0 0 60px var(--glow-color-3); }
+    75% { text-shadow: 0 0 20px var(--glow-color-1), 0 0 40px var(--glow-color-1), 0 0 60px var(--glow-color-1); }
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --base-depth: 3px;
+    --max-depth: 25px;
+    --wobble-angle: 6deg;
+    --letter-spacing: 1px;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.6em;
+  }
+
+  .glowing-3d-text-container {
+    max-width: 96%;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 15px var(--glow-color-1), 0 0 30px var(--glow-color-1), 0 0 45px var(--glow-color-1); }
+    25% { text-shadow: 0 0 15px var(--glow-color-2), 0 0 30px var(--glow-color-2), 0 0 45px var(--glow-color-2); }
+    50% { text-shadow: 0 0 15px var(--glow-color-3), 0 0 30px var(--glow-color-3), 0 0 45px var(--glow-color-3); }
+    75% { text-shadow: 0 0 15px var(--glow-color-1), 0 0 30px var(--glow-color-1), 0 0 45px var(--glow-color-1); }
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --base-depth: 2.5px;
+    --max-depth: 20px;
+    --wobble-angle: 5deg;
+    --letter-spacing: 0.8px;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.5em;
+  }
+
+  .glowing-3d-text-container {
+    max-width: 98%;
+  }
+
+  @keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px var(--glow-color-1), 0 0 20px var(--glow-color-1), 0 0 30px var(--glow-color-1); }
+    25% { text-shadow: 0 0 10px var(--glow-color-2), 0 0 20px var(--glow-color-2), 0 0 30px var(--glow-color-2); }
+    50% { text-shadow: 0 0 10px var(--glow-color-3), 0 0 20px var(--glow-color-3), 0 0 30px var(--glow-color-3); }
+    75% { text-shadow: 0 0 10px var(--glow-color-1), 0 0 20px var(--glow-color-1), 0 0 30px var(--glow-color-1); }
+  }
+}
+
+/* Orientation-specific adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .glowing-3d-text {
+    transform-origin: center 40%;
+  }
+
+  .glowing-3d-text h1 {
+    font-size: 0.6em;
+    line-height: 1;
+  }
+}

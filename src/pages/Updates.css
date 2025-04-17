@@ -1,0 +1,267 @@
+/* Updates page styles */
+.updates-container {
+  min-height: 100vh;
+  background-color: #123524;
+  padding: 5rem 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  contain: content;
+  will-change: scroll-position;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.updates-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.updates-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #EFE3C2;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(133, 169, 71, 0.3);
+}
+
+.updates-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.tab-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  color: #EFE3C2;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.tab-button.active {
+  background-color: #85A947;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-button:not(.active) {
+  background-color: rgba(26, 71, 42, 0.5);
+}
+
+.tab-button:not(.active):hover {
+  background-color: rgba(26, 71, 42, 0.8);
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.update-card {
+  background-color: rgba(26, 71, 42, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(133, 169, 71, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.update-card:hover {
+  border-color: rgba(133, 169, 71, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.update-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.update-date {
+  font-size: 0.875rem;
+  color: rgba(239, 227, 194, 0.7);
+}
+
+.update-category {
+  padding: 0.25rem 0.75rem;
+  background-color: rgba(133, 169, 71, 0.2);
+  border-radius: 30px;
+  font-size: 0.75rem;
+  color: #EFE3C2;
+  white-space: nowrap;
+}
+
+.update-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #EFE3C2;
+  margin-bottom: 0.75rem;
+}
+
+.update-description {
+  color: rgba(239, 227, 194, 0.8);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.update-button {
+  margin-top: auto;
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  background-color: rgba(133, 169, 71, 0.2);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: #EFE3C2;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.update-button:hover {
+  background-color: rgba(133, 169, 71, 0.3);
+  transform: scale(1.02);
+}
+
+.empty-state {
+  background-color: rgba(26, 71, 42, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(133, 169, 71, 0.3);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.empty-state-emoji {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.empty-state-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #EFE3C2;
+  margin-bottom: 1rem;
+}
+
+.empty-state-message {
+  color: rgba(239, 227, 194, 0.8);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .updates-container {
+    padding: 4rem 1rem;
+  }
+  
+  .updates-tabs {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .tab-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .update-card {
+    padding: 1.25rem;
+  }
+  
+  .empty-state {
+    padding: 1.5rem;
+  }
+  
+  .empty-state-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .empty-state-title {
+    font-size: 1.3rem;
+  }
+  
+  .empty-state-message {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .updates-container {
+    padding: 3rem 0.75rem;
+  }
+  
+  .updates-heading {
+    margin-bottom: 1.5rem;
+  }
+  
+  .updates-tabs {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    flex: 1 1 auto;
+  }
+  
+  .update-card {
+    padding: 1rem;
+  }
+  
+  .update-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .update-title {
+    font-size: 1.1rem;
+  }
+  
+  .empty-state {
+    padding: 1.25rem;
+  }
+  
+  .empty-state-emoji {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .empty-state-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .empty-state-message {
+    font-size: 0.95rem;
+  }
+}
