@@ -551,11 +551,11 @@
 
   .candy-btn {
     font-size: clamp(0.6rem, 1.3vw, 0.7rem);
-    padding: 0.7rem clamp(1.5rem, 5vw, 4rem);
-    min-width: clamp(220px, 40vw, 400px);
+    padding: 0.7rem clamp(2.5rem, 7vw, 6rem); /* Increased padding */
+    min-width: clamp(280px, 50vw, 500px); /* Increased min-width */
     letter-spacing: -0.03em;
     transform: scale(0.9);
-    flex: 1 1 40%;
+    flex: 1 1 45%; /* Slightly increased flex basis */
   }
 }
 
@@ -605,10 +605,10 @@
 
   .candy-btn {
     font-size: clamp(0.55rem, 1.2vw, 0.65rem);
-    padding: 0.6rem clamp(1rem, 4vw, 3rem);
-    min-width: clamp(200px, 80vw, 280px);
+    padding: 0.6rem clamp(2rem, 6vw, 4rem); /* Increased padding */
+    min-width: clamp(240px, 85vw, 320px); /* Increased min-width */
     width: 100%;
-    max-width: 400px;
+    max-width: 450px; /* Increased max-width */
     letter-spacing: -0.04em;
     transform: scale(0.85);
     flex: 1 1 100%;
@@ -634,22 +634,22 @@
 
 .register-buttons-wrapper {
   display: flex;
-  gap: clamp(1.5rem, 5vw, 3rem); /* Responsive gap */
+  gap: clamp(2rem, 6vw, 4rem); /* Increased responsive gap */
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px; /* Increased max-width */
   margin: 0 auto;
-  padding: 0 clamp(0.5rem, 3vw, 2rem); /* Responsive padding */
+  padding: 0 clamp(1rem, 4vw, 3rem); /* Increased responsive padding */
 }
 
 /* Registration button styles */
 .candy-btn {
-  min-width: clamp(280px, 50vw, 600px); /* Responsive min-width */
+  min-width: clamp(320px, 60vw, 700px); /* Increased responsive min-width */
   max-width: 100%;
   font-size: clamp(0.65rem, 1.4vw, 0.8rem);
-  padding: 0.8rem clamp(2rem, 8vw, 7rem); /* Responsive padding */
+  padding: 0.8rem clamp(3rem, 10vw, 9rem); /* Increased responsive padding */
   white-space: nowrap;
   letter-spacing: -0.02em;
   transform: scale(0.95);
@@ -747,10 +747,11 @@
   .candy-btn {
     transform: scale(0.8);
     font-size: clamp(0.5rem, 1.1vw, 0.6rem);
-    padding: 0.5rem clamp(0.8rem, 2vw, 1.5rem);
-    min-width: clamp(180px, 30vw, 220px);
+    padding: 0.5rem clamp(1.5rem, 4vw, 3rem); /* Increased padding */
+    min-width: clamp(220px, 40vw, 280px); /* Increased min-width */
     letter-spacing: -0.05em;
     flex: 0 1 auto;
+    max-width: 350px; /* Added max-width */
   }
 
   .department-container {
