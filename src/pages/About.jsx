@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import hodImage from '../assets/hod.jpg';
+import hodImage from '../assets/hod2.jpg';
 
 const About = () => {
   const team = [

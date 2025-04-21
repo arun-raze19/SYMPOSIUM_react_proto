@@ -1,6 +1,46 @@
 /* Responsive text styles */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
+/* 3D floating animation for mecdesign image */
+@keyframes float {
+  0% {
+    transform: translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+  }
+  50% {
+    transform: translateY(-20px) translateZ(30px) rotateX(5deg) rotateY(5deg);
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.2)) drop-shadow(0 0 40px rgba(255, 255, 255, 0.9)) brightness(1.3);
+  }
+  100% {
+    transform: translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg);
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+  }
+}
+
+/* Glow effect for mecdesign image */
+@keyframes glow-pulse {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 70px rgba(255, 255, 255, 0.5), 0 0 100px rgba(255, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Styling for the image without glow */
+.glow-effect {
+  animation: float 6s ease-in-out infinite;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  transform-origin: center center;
+  transform: scale(1.2);
+}
+
 /* Home page container styles */
 .home-container {
   min-height: 100vh;

@@ -1,0 +1,85 @@
+/* 3D Text Effect for AI_HACKBLITZ XXV */
+.hackblitz-text-fill {
+  position: relative;
+  font-family: inherit;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  padding: 10px;
+  /* text-transform: uppercase; */
+  transform-style: preserve-3d;
+  perspective: 800px;
+  z-index: 1;
+  color: transparent; /* Hide the original text */
+  animation: float-3d 6s ease-in-out infinite;
+}
+
+/* Animation for subtle 3D floating effect */
+@keyframes float-3d {
+  0% {
+    transform: translateZ(0px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateZ(5px) rotateX(3deg) rotateY(-3deg);
+  }
+  50% {
+    transform: translateZ(10px) rotateX(0deg) rotateY(0deg);
+  }
+  75% {
+    transform: translateZ(5px) rotateX(-3deg) rotateY(3deg);
+  }
+  100% {
+    transform: translateZ(0px) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+/* Base layer for 3D effect */
+.hackblitz-text-fill::after {
+  content: 'AI_HACKBLITZ XXV';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #85A947;
+  text-shadow:
+    0 1px 0 #6a8a39,
+    0 2px 0 #5f7d33,
+    0 3px 0 #54702d,
+    0 4px 0 #496327,
+    0 5px 0 #3e5621,
+    0 6px 0 #33491b,
+    0 7px 0 #283c15,
+    0 8px 0 #1d2f0f,
+    0 9px 0 #122209,
+    0 10px 0 #0a1504,
+    0 11px 0 #050b02,
+    0 12px 10px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Top layer with gradient effect */
+.hackblitz-text-fill::before {
+  content: 'AI_HACKBLITZ XXV';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #3E7B27, #85A947, #ffffff, #85A947, #3E7B27
+  ) repeat-y;
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  -webkit-animation: hackblitz-fill 5s linear infinite;
+  animation: hackblitz-fill 5s linear infinite;
+  z-index: 2;
+  text-shadow: none; /* Remove shadow from gradient layer */
+}
+
+@keyframes hackblitz-fill {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
