@@ -96,7 +96,7 @@
   transform: scale(1.02);
 }
 
-/* Inter College Event Poster specific styles */
+/* FOR MEC Poster specific styles */
 .inter-event-poster {
   background-color: #123524;
   padding: 1rem;
@@ -111,7 +111,7 @@
 }
 
 .inter-event-poster-container::before {
-  content: 'Inter College Event';
+  content: 'FOR MEC';
   position: absolute;
   top: -15px;
   left: 50%;

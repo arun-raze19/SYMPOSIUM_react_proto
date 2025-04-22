@@ -138,7 +138,7 @@ const Updates = () => {
                 message = 'Updates for Part 2 (Offline Event) on 05.05.2025 will be posted here. Check back for details about venue, schedule, and prototype demonstrations.';
                 emoji = '🌐'; // globe
               } else {
-                message = 'Updates for MEC Inter College event will be posted here. Stay tuned for information about registration, DSA problems, and competition details.';
+                message = 'Updates for MEC Intra College event will be posted here. Stay tuned for information about registration, DSA problems, and competition details.';
                 emoji = '🏆'; // trophy
               }
 

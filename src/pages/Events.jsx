@@ -7,7 +7,7 @@ import interEventPoster from '../assets/mecevv.png';
 const Events = () => {
   const [activeTab, setActiveTab] = useState('intra'); // 'intra' or 'inter'
 
-  // Intra College Event Data
+  // FOR OTHER COLLEGES Data
   const domains = [
     {
       id: 1,
@@ -51,7 +51,7 @@ const Events = () => {
     }
   ];
 
-  // Inter College Event Data
+  // FOR MEC Data
   const interCollegeGuidelines = [
     'This Linear hackathon provides each team with two problems based on Data Structure and Algorithms (DSA).',
     'Participants must complete the problem within the time limit.'
@@ -71,13 +71,13 @@ const Events = () => {
             className={`event-tab ${activeTab === 'intra' ? 'active' : ''}`}
             onClick={() => setActiveTab('intra')}
           >
-            Intra College Event
+            FOR OTHER COLLEGES
           </button>
           <button
             className={`event-tab ${activeTab === 'inter' ? 'active' : ''}`}
             onClick={() => setActiveTab('inter')}
           >
-            Inter College Event
+            FOR MEC
           </button>
         </div>
         <motion.h1
@@ -89,7 +89,7 @@ const Events = () => {
           AI_HACKBLITZ XXV
         </motion.h1>
 
-        {/* Intra College Event Content */}
+        {/* FOR OTHER COLLEGES Content */}
         {activeTab === 'intra' && (
           <motion.div
             className="event-content"
@@ -230,7 +230,7 @@ const Events = () => {
           </motion.div>
         )}
 
-        {/* Inter College Event Content */}
+        {/* FOR MEC Content */}
         {activeTab === 'inter' && (
           <motion.div
             className="event-content"
