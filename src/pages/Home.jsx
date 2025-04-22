@@ -31,8 +31,8 @@ const Home = () => {
           flexDirection: 'column',
           alignItems: 'center',
           marginBottom: '0px',
-          perspective: '1500px',
-          overflow: 'hidden'
+          perspective: '5000px',
+          overflow: 'visible'
         }}>
           {/* MEC Design with 3D effects and glow */}
           <motion.div
@@ -50,10 +50,11 @@ const Home = () => {
             }}
             style={{
               transformStyle: 'preserve-3d',
-              transform: 'translateZ(50px)',
+              transform: 'translateZ(200px)',
               position: 'relative',
               width: '100vw',
               maxWidth: '100vw',
+              overflow: 'visible',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
@@ -68,7 +69,7 @@ const Home = () => {
               className="glow-effect"
               style={{
                 width: '100%',
-                maxWidth: 'min(100vw, 2000px)',
+                maxWidth: 'min(100vw, 16000px)',
                 height: 'auto',
                 transformStyle: 'preserve-3d'
               }}
@@ -80,7 +81,7 @@ const Home = () => {
         <div style={{
           width: '100%',
           textAlign: 'center',
-          marginTop: '-40px',
+          marginTop: '100px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -150,12 +151,16 @@ const Home = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.8 }}
             style={{
-              fontSize: 'clamp(2rem, 6vw, 3.5rem)',
+              fontSize: 'clamp(1.5rem, 5vw, 3rem)',
               fontWeight: 'bold',
-              letterSpacing: '0.1em',
+              letterSpacing: '0.05em',
               margin: '20px 0 60px 0',
               fontStyle: 'italic',
-              transform: 'perspective(800px) rotateX(10deg)'
+              transform: 'perspective(800px) rotateX(10deg)',
+              width: '100%',
+              textAlign: 'center',
+              display: 'flex',
+              justifyContent: 'center'
             }}
           >
             <div className="hackblitz-text-fill">
@@ -176,15 +181,15 @@ const Home = () => {
           }}>
             <Link to="/loading-redirect" style={{ textDecoration: 'none' }}>
               <div className="candy-btn btn-candy-12 btn-intra">
-                <span>INTRA COLLEGE REGISTRATION</span>
-                <span>INTRA COLLEGE REGISTRATION</span>
+                <span>OTHER COLLEGE REGISTRATION</span>
+                <span>OTHER COLLEGE REGISTRATION</span>
               </div>
             </Link>
 
             <Link to="/loading-redirect-mec" style={{ textDecoration: 'none' }}>
               <div className="candy-btn btn-candy-12 btn-mec">
-                <span>INTER COLLEGE REGISTRATION</span>
-                <span>INTER COLLEGE REGISTRATION</span>
+                <span>MEC COLLEGE REGISTRATION</span>
+                <span>MEC COLLEGE REGISTRATION</span>
               </div>
             </Link>
           </div>

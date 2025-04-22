@@ -38,7 +38,10 @@
   display: block;
   margin: 0 auto;
   transform-origin: center center;
-  transform: scale(1.2);
+  transform: scale(9.6);
+  position: relative;
+  left: 0;
+  right: 0;
 }
 
 /* Home page container styles */
