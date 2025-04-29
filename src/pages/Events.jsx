@@ -39,15 +39,9 @@ const Events = () => {
   const eventParts = [
     {
       id: 1,
-      title: 'Online Event',
-      description: 'The preliminary round will be conducted online, where teams will present their innovative solutions based on the chosen theme to a panel of expert judges.',
-      rules: 'Teams will present their ideas through a detailed presentation covering problem statement, proposed solution, technology stack, and implementation plan. Each team will have 10 minutes for presentation followed by a Q&A session.'
-    },
-    {
-      id: 2,
-      title: 'Offline Event',
-      description: 'Qualified teams will advance to this on-campus round where they will demonstrate their functional prototypes. This hands-on session will showcase technical implementation and real-world applicability of solutions.',
-      rules: 'Selected teams will demonstrate their working prototypes to judges. Evaluation will be based on innovation, technical implementation, user experience, and alignment with the chosen theme. Prizes will be awarded to the top three teams.'
+      title: 'OFFLINE EVENT',
+      description: 'This on-campus event will allow teams to demonstrate their functional prototypes. This hands-on session will showcase technical implementation and real-world applicability of solutions.',
+      rules: 'Teams will demonstrate their working prototypes to judges. Evaluation will be based on innovation, technical implementation, user experience, and alignment with the chosen theme. Prizes will be awarded to the top three teams.'
     }
   ];
 
@@ -210,18 +204,15 @@ const Events = () => {
                     whileHover={{ scale: 1.02 }}
                   >
                     <h3 className="event-part-title">
-                      <span>PART {part.id}</span> - {part.title}
+                      {part.title}
                     </h3>
                     <div className="event-date">
-                      {part.id === 1 ? '30-04-2025' : '05-05-2025'}
+                      05-05-2025
                     </div>
                     <p className="event-description">{part.description}</p>
                     <div className="event-rules">
                       <h4 className="event-rules-title">Rules and Regulations:</h4>
                       <p className="event-rules-content">{part.rules}</p>
-                      {part.id === 1 && (
-                        <p className="event-rules-content mt-2">* The part one upload link or time will be updated on updates page</p>
-                      )}
                     </div>
                   </motion.div>
                 ))}
